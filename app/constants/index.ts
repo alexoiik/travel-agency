@@ -1,5 +1,6 @@
 import type { AxisModel } from "@syncfusion/ej2-react-charts";
 
+// Sidebar Items.
 export const sidebarItems = [
   {
     id: 1,
