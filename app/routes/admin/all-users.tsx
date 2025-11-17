@@ -2,10 +2,10 @@ import { Header } from "../../components"
 
 const AllUsers = () => {
     return (
-        <main className="dashboard wrapper">
+        <main className="all-users wrapper">
             <Header
-                title="Trips Page"
-                description="Check out our current users in real time"
+                title="Manage Users"
+                description="Filter, sort, and access detailed user profiles"
             />
 
             All Users Page Contents

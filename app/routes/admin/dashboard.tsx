@@ -9,6 +9,10 @@ export const clientLoader = async () => await getUser();
 
 const { totalUsers, usersJoined, totalTrips, tripsCreated, userRole } = dashboardStats;
 
+// export async function loader() {
+//     throw new Error("My first Sentry error!");
+// }
+
 const Dashboard = ({ loaderData }: Route.ComponentProps) => {
     const user = loaderData as User | null;
 
