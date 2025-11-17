@@ -1,6 +1,6 @@
 // Components.
 import { Header, StatsCard, TripCard } from "../../components"
-import { user, dashboardStats, allTrips } from "~/constants";
+import { dashboardStats, allTrips } from "~/constants";
 // Appwrite.
 import { getUser } from "~/appwrite/auth";
 import type { Route } from './+types/dashboard'

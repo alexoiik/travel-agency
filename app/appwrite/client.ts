@@ -1,3 +1,4 @@
+// Appwrite.
 import { Account, Client, Databases, Storage } from "appwrite";
 
 export const appwriteConfig = {
