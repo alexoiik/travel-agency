@@ -1,8 +1,16 @@
-
+// Components.
+import { Header } from '~/components'
 
 const Trips = () => {
     return (
-        <div>Trips</div>
+        <main className="all-users wrapper">
+            <Header
+                title="Trips"
+                description="View and edit AI-Generated travel plans"
+                ctaText="Create a trip"
+                ctaUrl="/trips/create"
+            />
+        </main>
     )
 }
 
