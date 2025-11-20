@@ -9,21 +9,21 @@ import { appwriteConfig, database } from "~/appwrite/client";
 import { ID } from "appwrite";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-    const {
-        country,
-        numberOfDays,
-        travelStyle,
-        interests,
-        budget,
-        groupType,
-        userId,
-    } = await request.json();
+  const {
+    country,
+    numberOfDays,
+    travelStyle,
+    interests,
+    budget,
+    groupType,
+    userId,
+  } = await request.json();
 
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-    const unsplashApiKey = process.env.UNSPLASH_ACCESS_KEY!;
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  const unsplashApiKey = process.env.UNSPLASH_ACCESS_KEY!;
 
-    try {
-        const prompt = `Generate a ${numberOfDays}-day travel itinerary for ${country} based on the following user information:
+  try {
+    const prompt = `Generate a ${numberOfDays}-day travel itinerary for ${country} based on the following user information:
         Budget: '${budget}'
         Interests: '${interests}'
         TravelStyle: '${travelStyle}'
@@ -70,33 +70,33 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         ]
     }`;
 
-        const textResult = await genAI
-            .getGenerativeModel({ model: 'gemini-2.0-flash' })
-            .generateContent([prompt])
+    const textResult = await genAI
+      .getGenerativeModel({ model: 'gemini-2.0-flash' })
+      .generateContent([prompt])
 
-        const trip = parseMarkdownToJson(textResult.response.text());
+    const trip = parseMarkdownToJson(textResult.response.text());
 
-        const imageResponse = await fetch(
-            `https://api.unsplash.com/search/photos?query=${country} ${interests} ${travelStyle}&client_id=${unsplashApiKey}`
-        );
+    const imageResponse = await fetch(
+      `https://api.unsplash.com/search/photos?query=${country} ${interests} ${travelStyle}&client_id=${unsplashApiKey}`
+    );
 
-        const imageUrls = (await imageResponse.json()).results.slice(0, 3)
-            .map((result: any) => result.urls?.regular || null);
+    const imageUrls = (await imageResponse.json()).results.slice(0, 3)
+      .map((result: any) => result.urls?.regular || null);
 
-        const result = await database.createDocument(
-            appwriteConfig.databaseId,
-            appwriteConfig.tripCollectionId,
-            ID.unique(),
-            {
-                tripDetail: JSON.stringify(trip),
-                createdAt: new Date().toISOString(),
-                imageUrls,
-                userId,
-            }
-        )
+    const result = await database.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.tripCollectionId,
+      ID.unique(),
+      {
+        tripDetail: JSON.stringify(trip),
+        createdAt: new Date().toISOString(),
+        imageUrls,
+        userId,
+      }
+    )
 
-        return data({ id: result.$id })
-    } catch (e) {
-        console.error('Error generating travel plan: ', e);
-    }
+    return data({ id: result.$id })
+  } catch (e) {
+    console.error('Error generating travel plan: ', e);
+  }
 }
