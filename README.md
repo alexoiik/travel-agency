@@ -1,87 +1,44 @@
-# Welcome to React Router!
+# Travel Agency
 
-A modern, production-ready template for building full-stack React applications using React Router.
+## About App
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+**Description:**
 
-## Features
+A modern, AI-enhanced dashboard built for travel agencies to manage destinations, bookings, customers, analytics, and AI-powered assistance.
+Developed using React, React Router v7, Syncfusion UI, Appwrite backend, and Gemini AI.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+**Tech Stack:**
 
-## Getting Started
+| Category         | Technology                                                        |
+| ---------------- | ----------------------------------------------------------------- |
+| Frontend         | React, React Router v7                                            |
+| UI Components    | Syncfusion                                                        |
+| Backend          | Appwrite (Database, Auth, Storage, Functions)                     |
+| AI               | Google Gemini API                                                 |
 
-### Installation
+## Installation & Development Setup
 
-Install the dependencies:
+Clone, Install, and Run the Project:
 
 ```bash
+# Clone the repository
+git clone https://github.com/alexoiik/travel-agency.git
+
+# Move into the project directory
+cd travel-agency
+
+# Install dependencies
 npm install
-```
 
-### Development
-
-Start the development server with HMR:
-
-```bash
+# Run the development server
 npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
 
-## Styling
+## User Interface (UI)
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+<img src="public/assets/pics/SignIn.png" width="500"> <img src="public/assets/pics/Index.png" width="500"><br/>
+<img src="public/assets/pics/Dashboard.png" width="500"> <img src="public/assets/pics/Dashboard2.png" width="500"><br/>
+<img src="public/assets/pics/AllUsers.png" width="500"> <img src="public/assets/pics/AITrips.png" width="500"><br/>
+<img src="public/assets/pics/TripDetails.png" width="500"> <img src="public/assets/pics/TripDetails2.png" width="500"><br/>
+<img src="public/assets/pics/AddNewTrip.png" width="500"> <img src="public/assets/pics/AddNewTrip2.png" width="500"><br/>
